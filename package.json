@@ -46,5 +46,5 @@
     "plop": "latest",
     "typescript": "~3.9.5"
   },
-  "private": true
+  "private": false
 }
