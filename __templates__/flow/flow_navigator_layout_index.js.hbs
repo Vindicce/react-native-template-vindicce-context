@@ -1,0 +1,17 @@
+import React from 'react';
+import C from './styles';
+import { External } from '../../../../components'
+
+interface I{{pascalCase name}} {
+  data: any;
+}
+
+const {{pascalCase name}}: React.FC<I{{pascalCase name}}> = ({ data }) => (
+  <External>
+    <C.Container>
+      <C.Text>{data.TEXT1}</C.Text>
+    </C.Container>
+  </External>
+);
+
+export default {{pascalCase name}};

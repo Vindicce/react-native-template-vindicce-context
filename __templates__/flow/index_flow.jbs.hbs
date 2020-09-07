@@ -1,0 +1,13 @@
+import React from 'react';
+import {{ pascalCase name }} from './{{ pascalCase name }}'
+import { createStackNavigator } from '@react-navigation/stack';
+
+const {{ pascalCase name }}Stack = createStackNavigator();
+
+const {{ pascalCase name }}Routes: React.FC = () => (
+  <{{ pascalCase name }}Stack.Navigator>
+    <{{ pascalCase name }}Stack.Screen name="{{ pascalCase name }}" component={ {{ pascalCase name }} } />
+  </{{ pascalCase name }}Stack.Navigator>
+);
+
+export default {{ pascalCase name }}Routes;

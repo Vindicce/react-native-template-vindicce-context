@@ -1,0 +1,26 @@
+import React, { createContext, useContext } from 'react';
+
+interface I{{ pascalCase name }}Context {
+  initial: string;
+}
+
+export const {{ pascalCase name }}Context = createContext<I{{ pascalCase name }}Context >(
+  {} as I{{ pascalCase name }}Context 
+);
+
+export const {{ pascalCase name }}Provider: React.FC = ({ children }) => {
+
+  const value = {
+    initial: "test"
+  }
+
+  return (
+    <{{ pascalCase name }}Context.Provider value={value} >
+      {children}
+    </{{ pascalCase name }}Context.Provider>
+  );
+};
+
+export function use{{ pascalCase name }}(): I{{ pascalCase name }}Context {
+  return useContext({{ pascalCase name }}Context);
+}

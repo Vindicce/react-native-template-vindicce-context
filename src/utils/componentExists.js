@@ -27,8 +27,8 @@ function navigatorExists(comp, folder = 'components') {
 }
 
 function reduxExists(comp) {
-  const allRedux = fs.readdirSync('src/redux/reducers')
-  return allRedux.indexOf(`${comp}`) >= 0
+  const allHooks = fs.readdirSync('src/hooks')
+  return allHooks.indexOf(`${comp}`) >= 0
 }
 
 function navigatorExistsForViews(comp, folder = 'components', navigator) {

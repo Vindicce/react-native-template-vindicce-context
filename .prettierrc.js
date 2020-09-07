@@ -1,7 +1,8 @@
-// module.exports = {
-//   tabWidth: 2,
-//   semi: false,
-//   singleQuote: true,
-//   jsxBracketSameLine: true,
-//   trailingComma: 'es5',
-// }
+module.exports = {
+  tabWidth: 2,
+  semi: true,
+  singleQuote: true,
+  jsxBracketSameLine: true,
+  arrowParens: 'avoid',
+  trailingComma: 'es5',
+};
