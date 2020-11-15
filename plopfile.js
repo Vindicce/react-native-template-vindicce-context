@@ -204,13 +204,13 @@ module.exports = plop => {
     },
   });
   plop.setGenerator('Hooks', {
-    description: 'Create a new Redux',
+    description: 'Create a new Hooks',
     prompts: [
       {
         type: 'input',
         name: 'name',
         message: 'What should it be called?',
-        default: 'PesonRedux',
+        default: 'usePerson',
         validate: value => {
           if (/.+/.test(value)) {
             return reduxExists(value)

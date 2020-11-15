@@ -1,15 +1,12 @@
 import React from 'react';
 import C from './styles';
+import { I{{ pascalCase name }}Layout } from '../data'
 import { External } from '../../../../components'
 
-interface I{{pascalCase name}} {
-  data: any;
-}
-
-const {{pascalCase name}}: React.FC<I{{pascalCase name}}> = ({ data }) => (
+const {{pascalCase name}}: React.FC<I{{ pascalCase name }}Layout> = ({ data }) => (
   <External>
     <C.Container>
-      <C.Text>{data.TEXT1}</C.Text>
+      <C.Text>{`{{pascalCase name}}`}</C.Text>
     </C.Container>
   </External>
 );
