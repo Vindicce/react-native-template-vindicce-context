@@ -1,0 +1,11 @@
+import React from 'react';
+import {{ pascalCase name }} from './';
+import { render } from '@testing-library/react-native';
+
+describe('Render {{ pascalCase name }}', () => {
+  it('Should be {{ pascalCase name }} exist', () => {
+    const { getByTestId } = render(<{{ pascalCase name }} />);
+    const currentElement = getByTestId(`{{ pascalCase name }}`);
+    expect(currentElement).toBeTruthy();
+  });
+});

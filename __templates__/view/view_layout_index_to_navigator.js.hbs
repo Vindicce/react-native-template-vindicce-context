@@ -8,7 +8,7 @@ interface I{{pascalCase name}} {
 
 const {{pascalCase name}}: React.FC<I{{pascalCase name}}> = ({ data }) => (
   <External>
-    <C.Container>
+    <C.Container testID={`{{pascalCase name}}`}>
       <C.Text>{data.TEXT1}</C.Text>
     </C.Container>
   </External>

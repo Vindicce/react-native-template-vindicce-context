@@ -3,7 +3,7 @@ import { I{{ pascalCase name }}Layout } from '../data'
 import C from './styles';
 
 const {{pascalCase name}}: React.FC<I{{ pascalCase name }}Layout> = ({ data }) => (
-  <C.Container>
+  <C.Container testID={`{{pascalCase name}}`}>
     <C.Text>{`{{pascalCase name}}`}</C.Text>
   </C.Container>
 );

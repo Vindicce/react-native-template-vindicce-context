@@ -85,6 +85,10 @@ module.exports = plop => {
         ? 'src/views/{{pascalCase name}}/data.ts'
         : 'src/views/{{pascalCase navigator}}/{{pascalCase name}}/data.ts';
 
+      let pathToIndexTest = notNavigator
+        ? 'src/views/{{pascalCase name}}/{{pascalCase name}}.spec.tsx'
+        : 'src/views/{{pascalCase navigator}}/{{pascalCase name}}/{{pascalCase name}}.spec.tsx';
+
       let componentTemplateIndex =
         './__templates__/function/functionIndex.js.hbs';
 
@@ -118,6 +122,11 @@ module.exports = plop => {
                 templateFile: './__templates__/view/data.js.hbs',
               },
               {
+                type: 'add',
+                path: pathToIndexTest,
+                templateFile: './__templates__/view/component_test.js.hbs',
+              },
+              {
                 type: 'modify',
                 path: pathIndex,
                 pattern: patternImport,
@@ -144,6 +153,11 @@ module.exports = plop => {
                 type: 'add',
                 path: pathToIndexData,
                 templateFile: './__templates__/view/data.js.hbs',
+              },
+              {
+                type: 'add',
+                path: pathToIndexTest,
+                templateFile: './__templates__/view/component_test.js.hbs',
               },
             ];
       return actions;
@@ -191,6 +205,12 @@ module.exports = plop => {
           type: 'add',
           path: 'src/components/{{pascalCase name}}/data.ts',
           templateFile: './__templates__/components/data.js.hbs',
+        },
+        {
+          type: 'add',
+          path:
+            'src/components/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
+          templateFile: './__templates__/components/component_test.js.hbs',
         },
         {
           type: 'modify',
@@ -294,6 +314,12 @@ module.exports = plop => {
           path:
             'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/data.ts',
           templateFile: './__templates__/flow/data.js.hbs',
+        },
+        {
+          type: 'add',
+          path:
+            'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
+          templateFile: './__templates__/flow/component_test.js.hbs',
         },
         {
           type: 'modify',
