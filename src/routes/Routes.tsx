@@ -4,10 +4,26 @@ import * as views from '../views';
 
 const Stack = createStackNavigator();
 
-const Routes: React.FC = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Home" component={views.Home} />
-  </Stack.Navigator>
-);
+const allViews: { [key: string]: any } = {
+  ...views,
+};
 
-export default Routes;
+function defineRoutesProps(name: string) {
+  return {
+    name,
+    options: { headerShown: true },
+    component: allViews[name],
+  };
+}
+
+const viewsNames = Object.keys(views);
+
+export default function Routes() {
+  return (
+    <Stack.Navigator>
+      {viewsNames.map(viewName => (
+        <Stack.Screen key={viewName} {...defineRoutesProps(viewName)} />
+      ))}
+    </Stack.Navigator>
+  );
+}

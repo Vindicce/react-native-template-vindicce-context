@@ -4,7 +4,8 @@ const {
   getNavigators,
   navigatorExists,
   navigatorExistsForViews,
-  reduxExists,
+  hooksExists,
+  factoryExists,
 } = require('./src/utils/componentExists');
 
 module.exports = plop => {
@@ -233,7 +234,7 @@ module.exports = plop => {
         default: 'usePerson',
         validate: value => {
           if (/.+/.test(value)) {
-            return reduxExists(value)
+            return hooksExists(value)
               ? 'A component or container with this name already exists'
               : true;
           }
@@ -247,6 +248,11 @@ module.exports = plop => {
           type: 'add',
           path: 'src/hooks/{{pascalCase name}}.tsx',
           templateFile: './__templates__/hooks/new_hook.js.hbs',
+        },
+        {
+          type: 'add',
+          path: 'src/utils/interfaces/{{pascalCase name}}Interfaces.tsx',
+          templateFile: './__templates__/utils/interfacesContext.tsx.hbs',
         },
         {
           type: 'modify',
@@ -329,6 +335,64 @@ module.exports = plop => {
         },
       ];
 
+      return actions;
+    },
+  });
+  plop.setGenerator('Factory', {
+    description: 'Create a new Factory',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What should it be called?',
+        default: 'PaymentFactory',
+        validate: value => {
+          if (/.+/.test(value)) {
+            return reduxExists(value)
+              ? 'A component or container with this name already exists'
+              : true;
+          }
+          return 'The name is required';
+        },
+      },
+    ],
+    actions: () => {
+      const actions = [
+        {
+          type: 'add',
+          path: 'src/utils/factories/{{pascalCase name}}Factory.tsx',
+          templateFile: './__templates__/utils/factory.tsx.hbs',
+        },
+      ];
+      return actions;
+    },
+  });
+  plop.setGenerator('Interfaces', {
+    description: 'Create a new interface',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What should it be called?',
+        default: 'PaymentInterface',
+        validate: value => {
+          if (/.+/.test(value)) {
+            return reduxExists(value)
+              ? 'A component or container with this name already exists'
+              : true;
+          }
+          return 'The name is required';
+        },
+      },
+    ],
+    actions: () => {
+      const actions = [
+        {
+          type: 'add',
+          path: 'src/utils/interfaces/{{pascalCase name}}Interfaces.tsx',
+          templateFile: './__templates__/utils/interfacesContext.tsx.hbs',
+        },
+      ];
       return actions;
     },
   });
