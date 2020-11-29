@@ -61,4 +61,5 @@ module.exports = {
   navigatorExistsForViews,
   hooksExists,
   factoryExists,
+  interfaceExists,
 };
