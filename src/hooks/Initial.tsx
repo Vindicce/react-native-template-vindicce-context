@@ -1,23 +1,17 @@
 import React, { createContext, useContext } from 'react';
+import { IInitialContext } from '../utils/interfaces';
 
-interface IInitialContext {
-  initial: string;
-}
-
-export const InitialContext = createContext<IInitialContext >(
-  {} as IInitialContext 
+export const InitialContext = createContext<IInitialContext>(
+  {} as IInitialContext
 );
 
 export const InitialProvider: React.FC = ({ children }) => {
-
   const value = {
-    initial: "test"
-  }
+    initial: 'test',
+  };
 
   return (
-    <InitialContext.Provider value={value} >
-      {children}
-    </InitialContext.Provider>
+    <InitialContext.Provider value={value}>{children}</InitialContext.Provider>
   );
 };
 
