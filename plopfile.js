@@ -6,6 +6,7 @@ const {
   navigatorExistsForViews,
   hooksExists,
   factoryExists,
+  interfaceExists,
 } = require('./src/utils/componentExists');
 
 module.exports = plop => {
@@ -348,7 +349,7 @@ module.exports = plop => {
         default: 'PaymentFactory',
         validate: value => {
           if (/.+/.test(value)) {
-            return reduxExists(value)
+            return factoryExists(value)
               ? 'A component or container with this name already exists'
               : true;
           }
@@ -377,7 +378,7 @@ module.exports = plop => {
         default: 'PaymentInterface',
         validate: value => {
           if (/.+/.test(value)) {
-            return reduxExists(value)
+            return interfaceExists(value)
               ? 'A component or container with this name already exists'
               : true;
           }
