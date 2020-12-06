@@ -161,6 +161,18 @@ module.exports = plop => {
                 path: pathToIndexTest,
                 templateFile: './__templates__/view/component_test.js.hbs',
               },
+              {
+                type: 'modify',
+                path: 'src/views/{{pascalCase navigator}}/index.tsx',
+                pattern: /\/\/ import views here\n/g,
+                templateFile: './__templates__/flow/import_view_routes.js.hbs',
+              },
+              {
+                type: 'modify',
+                path: 'src/views/{{pascalCase navigator}}/index.tsx',
+                pattern: /\/\/ add viewsName here\n/g,
+                templateFile: './__templates__/flow/import_view_name.js.hbs',
+              },
             ];
       return actions;
     },
@@ -260,6 +272,12 @@ module.exports = plop => {
           path: 'src/hooks/index.ts',
           pattern: /\/\/ Import hooks here\n/g,
           templateFile: './__templates__/hooks/import_export_hooks.js.hbs',
+        },
+        {
+          type: 'modify',
+          path: 'src/utils/interfaces/index.ts',
+          pattern: /\/\/ export interfaces\n/g,
+          templateFile: './__templates__/utils/export_interface.ts.hbs',
         },
       ];
       return actions;
@@ -363,6 +381,12 @@ module.exports = plop => {
           type: 'add',
           path: 'src/utils/factories/{{pascalCase name}}Factory.tsx',
           templateFile: './__templates__/utils/factory.tsx.hbs',
+        },
+        {
+          type: 'modify',
+          path: 'src/utils/factories/index.ts',
+          pattern: /\/\/ export factory\n/g,
+          templateFile: './__templates__/utils/export_factoy.ts.hbs',
         },
       ];
       return actions;

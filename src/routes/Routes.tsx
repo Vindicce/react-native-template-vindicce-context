@@ -11,7 +11,7 @@ const allViews: { [key: string]: any } = {
 function defineRoutesProps(name: string) {
   return {
     name,
-    options: { headerShown: true },
+    options: { headerShown: false },
     component: allViews[name],
   };
 }
