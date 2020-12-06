@@ -2,7 +2,7 @@ interface IInitialFactory {
   showName(): void;
 }
 
-function createInitial(): IInitialFactory {
+export function createInitialFactory(): IInitialFactory {
   function showName(): void {
     return console.log(`createInitial`);
   }
@@ -11,5 +11,3 @@ function createInitial(): IInitialFactory {
     showName,
   };
 }
-
-export { createInitial };

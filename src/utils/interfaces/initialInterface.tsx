@@ -1,5 +1,3 @@
-interface IInitialContext {
+export interface IInitialContext {
   initial: string;
 }
-
-export { IInitialContext };

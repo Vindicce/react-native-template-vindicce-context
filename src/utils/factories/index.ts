@@ -1,2 +1,2 @@
-export { createInitial } from './initialFactory';
+export { createInitialFactory } from './initialFactory';
 // export factory

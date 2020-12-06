@@ -1,9 +1,14 @@
-export default {
-  TEXT1: 'yarn g',
-  TEXT2: ', para gerar componentes',
-  TEXT3: "• View, to create Views(Container's), with redux.",
-  TEXT4: '• Components, for the creation of components.',
-  TEXT5: '• Hooks, to create a new Hooks.',
-  TEXT6:
-    '• Flow, to create a new application flow, already as a standard view, with redux.',
-};
+export default interface IHome {
+  data: {
+    TEXT1: string;
+    TEXT2: string;
+    TEXT3: string;
+    TEXT4: string;
+    TEXT5: string;
+    TEXT6: string;
+    TEXT7: string;
+    TEXT8: string;
+  };
+}
+
+export interface IHomeLayout extends IHome {}
