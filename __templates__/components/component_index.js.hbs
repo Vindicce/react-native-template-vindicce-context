@@ -1,7 +1,5 @@
 import React from 'react';
-import I{{ pascalCase name }} from './data';
-import Layout from './Layout';
+import { I{{ pascalCase name }} } from './data';
+import { {{ pascalCase name }} as Layout } from './Layout';
 
-export default function {{ pascalCase name }}(props: I{{ pascalCase name }}) {
-  return <Layout {...props} />;
-}
+export const {{ pascalCase name }}: React.FC<I{{ pascalCase name }}> = props => <Layout {...props} />;

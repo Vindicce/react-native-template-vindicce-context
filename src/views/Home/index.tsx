@@ -1,8 +1,8 @@
 import React from 'react';
-import IHome from './data';
-import Layout from './Layout';
+import { IHome } from './data';
+import { Home as Layout } from './Layout';
 
-export default function Home(props: IHome) {
+export const Home: React.FC<IHome> = (props) => {
   const data = {
     TEXT1: 'yarn g',
     TEXT2: ', to generate components',
@@ -14,5 +14,5 @@ export default function Home(props: IHome) {
     TEXT8: '• Interface, to create global interfaces',
   };
 
-  return <Layout {...props} data={data} />;
+  return <Layout {...props} data={data} />
 }

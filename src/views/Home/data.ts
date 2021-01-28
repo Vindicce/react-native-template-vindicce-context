@@ -1,4 +1,4 @@
-export default interface IHome {
+export interface IHome {
   data: {
     TEXT1: string;
     TEXT2: string;

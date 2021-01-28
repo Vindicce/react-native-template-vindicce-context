@@ -1,5 +1,5 @@
-import styled from 'styled-components/native'
-import { Platform } from 'react-native'
+import styled from 'styled-components/native';
+import { Platform } from 'react-native';
 
 export default {
   KeyboardAvoidingView: styled.KeyboardAvoidingView.attrs({
@@ -7,7 +7,6 @@ export default {
     enabled: true,
   })`
     flex: 1;
-    background: #fff;
   `,
   Container: styled.ScrollView.attrs({
     contentContainerStyle: {
@@ -15,5 +14,5 @@ export default {
     },
   })`
     flex: 1;
-  `
-}
+  `,
+};

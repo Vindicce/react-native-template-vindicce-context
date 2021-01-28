@@ -1,2 +1,2 @@
-export { IInitialContext } from './initialInterface';
+export { IModalType } from './customTypes';
 // export interfaces

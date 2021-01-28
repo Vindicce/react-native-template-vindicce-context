@@ -1,2 +1,2 @@
-export { default as Home } from './Home';
+export { Home } from './Home';
 // Import views here

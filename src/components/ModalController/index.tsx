@@ -1,16 +1,13 @@
 import React, { Fragment } from 'react';
-import Button from '../../components/Button';
+import { IModalType } from '../../utils/interfaces';
 import { useModal } from '../../hooks';
 
-const ModalController: React.FC = () => {
+export const ModalController: React.FC = () => {
   const { modalType } = useModal();
 
-  const Modals: { [key: string]: JSX.Element } = {
-    Button: <Button />,
+  const Modals: IModalType = {
+    Initial: <Fragment />,
   };
 
   return Modals[modalType] || <Fragment />;
-  // return <Fragment />;
 };
-
-export default ModalController;

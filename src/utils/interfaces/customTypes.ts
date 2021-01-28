@@ -1,0 +1,1 @@
+export type IModalType = { [key: string]: JSX.Element };

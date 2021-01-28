@@ -1,4 +1,4 @@
-import colors from './colors'
-import metrics from './metrics'
+import Colors from './Colors'
+import Metrics from './Metrics'
 
-export { colors, metrics }
+export { Colors, Metrics }

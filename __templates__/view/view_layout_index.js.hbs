@@ -3,12 +3,10 @@ import { I{{ pascalCase name }}Layout } from '../data'
 import { External } from '../../../components'
 import C from './styles';
 
-export default function {{pascalCase name}}({ data }: I{{ pascalCase name }}Layout) {
-  return (
-    <External>
-      <C.Container testID={`{{pascalCase name}}`}>
-        <C.Text>{`{{pascalCase name}}`}</C.Text>
-      </C.Container>
-    </External>
-  );
-}
+export const {{pascalCase name}}: React.FC<I{{ pascalCase name }}Layout> = ({ data }) => (
+  <External>
+    <C.Container testID={`{{pascalCase name}}`}>
+      <C.Text>{`{{pascalCase name}}`}</C.Text>
+    </C.Container>
+  </External>
+)

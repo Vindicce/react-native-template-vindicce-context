@@ -1,6 +1,6 @@
 import { Dimensions, Platform } from 'react-native';
 import { getStatusBarHeight, isIphoneX } from 'react-native-iphone-x-helper';
-import normalize from './../utils/sizeHelper';
+import normalize from '../utils/sizeHelper';
 
 const { height, width } = Dimensions.get('window');
 

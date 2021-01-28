@@ -1,34 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Animated,
-  Keyboard,
-  BackHandler,
-  StatusBar,
-  Easing,
-} from 'react-native';
-import { metrics } from '../../styles';
+import React, { useState, useEffect, Fragment } from 'react';
+import { Metrics } from '../../styles';
 import { useModal } from '../../hooks';
-import * as C from './styles';
+import { Animated, Keyboard, BackHandler, Easing } from 'react-native';
+import IModal from './data';
 
-interface IDefaultModal {
-  children?: React.ReactNode;
-  duration?: number;
-  showBackground?: boolean;
-  showCloseButton?: boolean;
-  animationToRemove?: string;
-}
-
-const DefaultModal: React.FC<IDefaultModal> = ({
+export const DefaultModal: React.FC<IModal> = ({
   children,
   duration,
   showBackground,
-  animationToRemove,
 }) => {
-  const { toClose, removeModal, backScale } = useModal();
-  const [animationValue] = useState(duration);
-  const [bgTop] = useState(new Animated.Value(metrics.height));
+  const { toClose, removeModal } = useModal();
+  const [animationValue] = useState(duration || 400);
   const [bgOpacity] = useState(new Animated.Value(0));
-  const [containerTop] = useState(new Animated.Value(metrics.height));
+  const [bgTop] = useState(new Animated.Value(Metrics.height));
+  const [containerTop] = useState(new Animated.Value(Metrics.height));
 
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
@@ -47,14 +32,9 @@ const DefaultModal: React.FC<IDefaultModal> = ({
 
   function closeCurrentModal() {
     moveBottom();
-    backScale();
-    setTimeout(() => {
-      removeModal();
-    }, animationValue);
   }
 
   function moveTop() {
-    StatusBar.setBarStyle('light-content', true);
     Keyboard.dismiss();
     Animated.sequence([
       Animated.parallel([
@@ -71,7 +51,7 @@ const DefaultModal: React.FC<IDefaultModal> = ({
         Animated.timing(containerTop, {
           toValue: 0,
           duration: animationValue,
-          easing: Easing.in(Easing.in),
+          easing: Easing.in(Easing.quad),
           useNativeDriver: false,
         }),
       ]),
@@ -79,64 +59,51 @@ const DefaultModal: React.FC<IDefaultModal> = ({
   }
 
   function moveBottom() {
-    StatusBar.setBarStyle('dark-content', true);
     Keyboard.dismiss();
-    if (animationToRemove == 'default') {
-      Animated.sequence([
-        Animated.parallel([
-          Animated.timing(bgOpacity, {
-            toValue: 0,
-            duration: animationValue,
-            useNativeDriver: true,
-          }),
-          Animated.timing(containerTop, {
-            toValue: metrics.height,
-            duration: animationValue,
-            useNativeDriver: true,
-            easing: Easing.in(Easing.bounce),
-          }),
-        ]),
-        Animated.timing(bgTop, {
-          toValue: metrics.height,
-          useNativeDriver: true,
-          duration: animationValue,
-        }),
-      ]).start();
-    } else {
-      Animated.sequence([
+    Animated.sequence([
+      Animated.parallel([
         Animated.timing(bgOpacity, {
           toValue: 0,
           duration: animationValue,
-          useNativeDriver: true,
+          useNativeDriver: false,
         }),
-        Animated.parallel([
-          Animated.timing(containerTop, {
-            toValue: metrics.height,
-            duration: animationValue,
-            useNativeDriver: true,
-          }),
-          Animated.timing(bgTop, {
-            toValue: metrics.height,
-            duration: animationValue,
-            useNativeDriver: true,
-          }),
-        ]),
-      ]).start();
-    }
+        Animated.timing(containerTop, {
+          toValue: Metrics.height,
+          duration: animationValue,
+          useNativeDriver: false,
+        }),
+        Animated.timing(bgTop, {
+          toValue: Metrics.height,
+          duration: animationValue,
+          useNativeDriver: false,
+        }),
+      ]),
+    ]).start(() => removeModal());
   }
 
   return (
-    <>
-      <C.BG
+    <Fragment>
+      <Animated.View
         style={{
+          zIndex: 5,
+          position: 'absolute',
+          width: Metrics.width,
+          height: Metrics.height,
           top: bgTop,
           opacity: bgOpacity,
           backgroundColor: showBackground ? 'rgba(0, 0, 0, 0.6)' : '',
         }}
       />
-      <C.Container style={{ top: containerTop }}>{children}</C.Container>
-    </>
+      <Animated.View
+        style={{
+          zIndex: 10,
+          position: 'absolute',
+          width: Metrics.width,
+          height: Metrics.height,
+          top: containerTop,
+        }}>
+        {children}
+      </Animated.View>
+    </Fragment>
   );
 };
-
-export default DefaultModal;

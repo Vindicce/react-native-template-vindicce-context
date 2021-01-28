@@ -264,7 +264,7 @@ module.exports = plop => {
         },
         {
           type: 'add',
-          path: 'src/utils/interfaces/{{pascalCase name}}Interfaces.tsx',
+          path: 'src/utils/interfaces/{{pascalCase name}}Interfaces.ts',
           templateFile: './__templates__/utils/interfacesContext.tsx.hbs',
         },
         {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {{ pascalCase name }} from './{{ pascalCase name }}'
+import { {{ pascalCase name }} } from './{{ pascalCase name }}'
 // import views here
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -28,7 +28,7 @@ export default function {{ pascalCase name }}Routes() {
   return (
     <{{ pascalCase name }}Stack.Navigator>
       {viewsNames.map(viewName => (
-        <PaymentStack.Screen key={viewName} {...defineRoutesProps(viewName)} />
+        <{{ pascalCase name }}Stack.Screen key={viewName} {...defineRoutesProps(viewName)} />
       ))}
     </{{ pascalCase name }}Stack.Navigator>
   )
