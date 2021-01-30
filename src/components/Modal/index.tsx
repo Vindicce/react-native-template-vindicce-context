@@ -117,7 +117,7 @@ export const Modal: React.FC<IModal> = ({
   `;
 
   const ModalLimits = styled.View`
-    max-height: ${Metrics.height - verticalValue * 2}px;
+    max-height: ${Metrics.height - verticalValue * 2}px ;
     background-color: ${color};
     padding-left: ${Metrics.defaultSpace()}px;
     padding-right: ${Metrics.defaultSpace()}px;
