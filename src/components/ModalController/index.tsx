@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react';
-import { IModalType } from '../../utils/interfaces';
+import { IModal } from '../../utils/interfaces';
 import { useModal } from '../../hooks';
+// import modal
 
 export const ModalController: React.FC = () => {
   const { modalType } = useModal();
 
-  const Modals: IModalType = {
+  const Modals: IModal = {
     Initial: <Fragment />,
+    // add modal
   };
 
   return Modals[modalType] || <Fragment />;

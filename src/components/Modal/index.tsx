@@ -1,13 +1,17 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Metrics } from '../../styles';
 import { useModal } from '../../hooks';
+import { IInsets } from '../../utils/interfaces';
 import { Animated, Keyboard, BackHandler, Easing } from 'react-native';
+import { initialWindowMetrics } from 'react-native-safe-area-context';
+import styled from 'styled-components/native';
 import IModal from './data';
 
-export const DefaultModal: React.FC<IModal> = ({
+export const Modal: React.FC<IModal> = ({
   children,
   duration,
-  showBackground,
+  color,
+  topRadiusScale,
 }) => {
   const { toClose, removeModal } = useModal();
   const [animationValue] = useState(duration || 400);
@@ -62,48 +66,90 @@ export const DefaultModal: React.FC<IModal> = ({
     Keyboard.dismiss();
     Animated.sequence([
       Animated.parallel([
-        Animated.timing(bgOpacity, {
-          toValue: 0,
-          duration: animationValue,
-          useNativeDriver: false,
-        }),
         Animated.timing(containerTop, {
           toValue: Metrics.height,
           duration: animationValue,
           useNativeDriver: false,
         }),
-        Animated.timing(bgTop, {
-          toValue: Metrics.height,
-          duration: animationValue,
-          useNativeDriver: false,
-        }),
       ]),
+      Animated.timing(bgOpacity, {
+        toValue: 0,
+        duration: 0,
+        useNativeDriver: false,
+      }),
     ]).start(() => removeModal());
   }
 
+  const insets: IInsets =
+    initialWindowMetrics != null
+      ? {
+          top: initialWindowMetrics.insets.top,
+          bottom: initialWindowMetrics.insets.bottom,
+        }
+      : ({} as IInsets);
+
+  const verticalValue = insets.top > insets.bottom ? insets.top : insets.bottom;
+
+  const Background = styled(Animated.View)`
+    z-index: 5;
+    position: absolute;
+    width: ${Metrics.width}px;
+    height: ${Metrics.height}px;
+    background-color: 'rgba(0, 0, 0, 0.4)';
+  `;
+
+  const ModalContainer = styled(Animated.View)`
+    z-index: 10;
+    position: absolute;
+    width: ${Metrics.width}px;
+    height: ${Metrics.height}px;
+  `;
+
+  const ModalContent = styled.View`
+    flex: 1;
+    justify-content: flex-end;
+  `;
+
+  const Space = styled.View<{ color: string }>`
+    width: 100%;
+    background-color: ${({ color }) => color};
+    height: ${verticalValue}px;
+  `;
+
+  const ModalLimits = styled.View`
+    max-height: ${Metrics.height - verticalValue * 2};
+    background-color: ${color};
+    padding-left: ${Metrics.defaultSpace()}px;
+    padding-right: ${Metrics.defaultSpace()}px;
+    border-top-left-radius: ${Metrics.defaultSpace(topRadiusScale)}px;
+    border-top-right-radius: ${Metrics.defaultSpace(topRadiusScale)}px;
+  `;
+
+  const Modal = styled.View`
+    margin-top: ${verticalValue}px;
+    justify-content: space-between;
+  `;
+
   return (
     <Fragment>
-      <Animated.View
+      <Background
         style={{
-          zIndex: 5,
-          position: 'absolute',
-          width: Metrics.width,
-          height: Metrics.height,
           top: bgTop,
           opacity: bgOpacity,
-          backgroundColor: showBackground ? 'rgba(0, 0, 0, 0.6)' : '',
         }}
       />
-      <Animated.View
+      <ModalContainer
         style={{
-          zIndex: 10,
-          position: 'absolute',
-          width: Metrics.width,
-          height: Metrics.height,
           top: containerTop,
         }}>
-        {children}
-      </Animated.View>
+        <ModalContent>
+          <Space color={'transparent'} />
+          <ModalLimits>
+            <Modal>{children}</Modal>
+          </ModalLimits>
+          <Space color={color} />
+        </ModalContent>
+      </ModalContainer>
     </Fragment>
   );
 };

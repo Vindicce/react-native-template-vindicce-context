@@ -1,4 +1,5 @@
 export default interface IModal {
   duration?: number;
-  showBackground?: boolean;
+  color: string;
+  topRadiusScale?: number;
 }

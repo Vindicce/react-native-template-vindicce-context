@@ -1,15 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
-interface IModalContext {
-  modalType: string;
-  toClose: boolean;
-  showModal: boolean;
-  scale: boolean;
-  openModal(modal: string): void;
-  closeModal(): void;
-  removeModal(): void;
-  backScale(): void;
-}
+import { IModalContext, IModalTypes } from '../utils//interfaces';
 
 export const ModalContext = createContext<IModalContext>({} as IModalContext);
 
@@ -19,7 +10,7 @@ export const ModalProvider: React.FC = ({ children }) => {
   const [toClose, setToClose] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  function openModal(type = 'default'): void {
+  function openModal(type: IModalTypes): void {
     setModalType(type);
     setShowModal(true);
     setScale(true);

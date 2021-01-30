@@ -1,0 +1,11 @@
+import React from 'react';
+import { IModal{{ pascalCase name }}Layout } from '../data'
+import C from './styles';
+
+export const Modal{{pascalCase name}}: React.FC<IModal{{pascalCase name}}Layout> = ({ press }) => (
+  <C.Container testID={`Modal{{pascalCase name}}`}>
+    <C.Press onPress={press}>
+      <C.Text>{`Modal{{pascalCase name}}`}</C.Text>
+    </C.Press>
+  </C.Container>
+)

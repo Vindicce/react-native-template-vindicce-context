@@ -237,6 +237,78 @@ module.exports = plop => {
       return actions;
     },
   });
+  plop.setGenerator('Modal', {
+    description: 'Create a new Modal',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What should it be called?',
+        default: 'Profile',
+        validate: value => {
+          if (/.+/.test(value)) {
+            return componentExists(value)
+              ? 'A component or container with this name already exists'
+              : true;
+          }
+          return 'The name is required';
+        },
+      },
+    ],
+    actions: data => {
+      let patternImport = /\/\/ Import component here\n/g;
+
+      const actions = [
+        {
+          type: 'add',
+          path: 'src/components/Modal{{pascalCase name}}/Layout/index.tsx',
+          templateFile:
+            './__templates__/modals/component_layout_index.js.hbs',
+        },
+        {
+          type: 'add',
+          path: 'src/components/Modal{{pascalCase name}}/Layout/styles.ts',
+          templateFile: './__templates__/modals/styles.js.hbs',
+        },
+        {
+          type: 'add',
+          path: 'src/components/Modal{{pascalCase name}}/index.tsx',
+          templateFile: './__templates__/modals/modal_component_index.js.hbs',
+        },
+        {
+          type: 'add',
+          path: 'src/components/Modal{{pascalCase name}}/data.ts',
+          templateFile: './__templates__/modals/data.js.hbs',
+        },
+        {
+          type: 'add',
+          path:
+            'src/components/Modal{{pascalCase name}}/Modal{{pascalCase name}}.spec.tsx',
+          templateFile: './__templates__/modals/component_test.js.hbs',
+        },
+        {
+          type: 'modify',
+          path: 'src/components/index.ts',
+          pattern: patternImport,
+          templateFile: './__templates__/modals/import_modal_component.js.hbs',
+        },
+        {
+          type: 'modify',
+          path: 'src/components/ModalController/index.tsx',
+          pattern: /\/\/ import modal\n/g,
+          templateFile: './__templates__/modals/import_modal_controller.js.hbs',
+        },
+        {
+          type: 'modify',
+          path: 'src/components/ModalController/index.tsx',
+          pattern: /\/\/ add modal\n/g,
+          templateFile: './__templates__/modals/add_modal.js.hbs',
+        },        
+      ];
+
+      return actions;
+    },
+  });
   plop.setGenerator('Hooks', {
     description: 'Create a new Hooks',
     prompts: [

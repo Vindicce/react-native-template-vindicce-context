@@ -1,0 +1,15 @@
+import React from 'react';
+import { Modal } from '../Modal';
+import { useModal } from '../../hooks';
+import { IModal{{ pascalCase name }} } from './data';
+import { Modal{{ pascalCase name }} as Layout } from './Layout';
+
+export const Modal{{ pascalCase name }}: React.FC<IModal{{ pascalCase name }}> = props => {
+  const { closeModal } = useModal();
+
+  return (
+    <Modal color={'#fff'}>
+      <Layout {...props} press={closeModal} />
+    </Modal>
+  );  
+}
