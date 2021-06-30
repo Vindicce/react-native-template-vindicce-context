@@ -4,7 +4,7 @@ import normalize from '../utils/sizeHelper';
 
 const { height, width } = Dimensions.get('window');
 
-export default {
+export const metrics = {
   height: height,
   width: width,
   defaultSpace: (multiplier = 1) => normalize(8 * multiplier),

@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
-import { ThemeProvider as StyledThemeProvider } from '../utils';
-import { metrics } from '../styles';
+import metrics from '../styles/metrics';
 
 const { defaultSpace } = metrics;
 
