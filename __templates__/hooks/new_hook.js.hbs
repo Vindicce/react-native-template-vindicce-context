@@ -1,4 +1,5 @@
-import React, { createContext, useContext } from 'react';
+import * as React from 'react' 
+import { createContext, useContext } from 'react';
 import { I{{ pascalCase name }}Context } from '../utils/interfaces/{{pascalCase name}}Interfaces';
 
 export const {{ pascalCase name }}Context = createContext<I{{ pascalCase name }}Context >(
@@ -6,13 +7,8 @@ export const {{ pascalCase name }}Context = createContext<I{{ pascalCase name }}
 );
 
 export const {{ pascalCase name }}Provider: React.FC = ({ children }) => {
-
-  const value = {
-    initial: "test"
-  }
-
   return (
-    <{{ pascalCase name }}Context.Provider value={value} >
+    <{{ pascalCase name }}Context.Provider value={{ initial: "initial" }} >
       {children}
     </{{ pascalCase name }}Context.Provider>
   );

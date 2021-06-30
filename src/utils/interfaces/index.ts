@@ -1,3 +1,3 @@
-export { IModalType, IInsets } from './customTypes';
-export { IModalTypes, IModalContext, IModal } from './ModalInterfaces';
+export * from './customTypes';
+export * from './ModalInterfaces';
 // export interfaces
