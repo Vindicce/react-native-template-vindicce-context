@@ -1,34 +1,15 @@
 import * as React from 'react';
-import { {{ pascalCase name }} } from './{{ pascalCase name }}'
-// import views here
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { routes } from "./navigator";
+
 const {{ pascalCase name }}Stack = createStackNavigator();
-
-const views = {
-  {{ pascalCase name }},
-  // add viewsName here
-};
-
-const allViews: { [key: string]: any } = {
-  ...views,
-};
-
-function defineRoutesProps(name: string) {
-  return {
-    name,
-    options: { headerShown: false },
-    component: allViews[name],
-  };
-}
-
-const viewsNames = Object.keys(views);
 
 export default function {{ pascalCase name }}Routes() {
   return (
     <{{ pascalCase name }}Stack.Navigator>
-      {viewsNames.map(viewName => (
-        <{{ pascalCase name }}Stack.Screen key={viewName} {...defineRoutesProps(viewName)} />
+      {routes.map((view) => (
+        <{{ pascalCase name }}Stack.Screen {...view} />
       ))}
     </{{ pascalCase name }}Stack.Navigator>
   )

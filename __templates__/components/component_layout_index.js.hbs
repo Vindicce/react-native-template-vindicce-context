@@ -1,9 +1,11 @@
 import * as React from 'react';
+
+import { Wrapped, Text } from '../../../components';
+
 import { I{{ pascalCase name }}Layout } from '../data'
-import C from './styles';
 
 export const {{pascalCase name}}: React.FC<I{{pascalCase name}}Layout> = ({ data }) => (
-  <C.Container testID={`{{pascalCase name}}`}>
-    <C.Text>{`{{pascalCase name}}`}</C.Text>
-  </C.Container>
+  <Wrapped flex={1} center testID={`{{pascalCase name}}`}>
+    <Text color="ORANGE">{`{{pascalCase name}}`}</Text>
+  </Wrapped>
 )

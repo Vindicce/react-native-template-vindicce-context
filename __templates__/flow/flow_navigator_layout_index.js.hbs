@@ -1,12 +1,14 @@
 import * as React from 'react';
+
+import { Wrapped, Page } from '../../../../components';
+
 import { I{{ pascalCase name }}Layout } from '../data'
-import { External } from '../../../../components'
 import C from './styles';
 
 export const {{pascalCase name}}: React.FC<I{{ pascalCase name }}Layout> = ({ data }) => (
-  <External>
-    <C.Container testID={`{{pascalCase name}}`}>
+  <Page>
+    <Wrapped flex={1} center testID={`{{pascalCase name}}`}>
       <C.Text>{`{{pascalCase name}}`}</C.Text>
-    </C.Container>
-  </External>
+    </Wrapped>
+  </Page>
 )

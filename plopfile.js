@@ -163,13 +163,13 @@ module.exports = plop => {
               },
               {
                 type: 'modify',
-                path: 'src/views/{{pascalCase navigator}}/index.tsx',
+                path: 'src/views/{{pascalCase navigator}}/navigator.tsx',
                 pattern: /\/\/ import views here\n/g,
                 templateFile: './__templates__/flow/import_view_routes.js.hbs',
               },
               {
                 type: 'modify',
-                path: 'src/views/{{pascalCase navigator}}/index.tsx',
+                path: 'src/views/{{pascalCase navigator}}/navigator.tsx',
                 pattern: /\/\/ add viewsName here\n/g,
                 templateFile: './__templates__/flow/import_view_name.js.hbs',
               },
@@ -222,8 +222,7 @@ module.exports = plop => {
         },
         {
           type: 'add',
-          path:
-            'src/components/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
+          path: 'src/components/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
           templateFile: './__templates__/components/component_test.js.hbs',
         },
         {
@@ -262,8 +261,7 @@ module.exports = plop => {
         {
           type: 'add',
           path: 'src/components/Modal{{pascalCase name}}/Layout/index.tsx',
-          templateFile:
-            './__templates__/modals/component_layout_index.js.hbs',
+          templateFile: './__templates__/modals/component_layout_index.js.hbs',
         },
         {
           type: 'add',
@@ -282,8 +280,7 @@ module.exports = plop => {
         },
         {
           type: 'add',
-          path:
-            'src/components/Modal{{pascalCase name}}/Modal{{pascalCase name}}.spec.tsx',
+          path: 'src/components/Modal{{pascalCase name}}/Modal{{pascalCase name}}.spec.tsx',
           templateFile: './__templates__/modals/component_test.js.hbs',
         },
         {
@@ -303,7 +300,7 @@ module.exports = plop => {
           path: 'src/components/ModalController/index.tsx',
           pattern: /\/\/ add modal\n/g,
           templateFile: './__templates__/modals/add_modal.js.hbs',
-        },        
+        },
       ];
 
       return actions;
@@ -389,34 +386,34 @@ module.exports = plop => {
         },
         {
           type: 'add',
-          path:
-            'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/Layout/index.tsx',
+          path: 'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/Layout/index.tsx',
           templateFile:
             './__templates__/flow/flow_navigator_layout_index.js.hbs',
         },
         {
           type: 'add',
-          path:
-            'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/Layout/styles.ts',
+          path: 'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/Layout/styles.ts',
           templateFile: './__templates__/flow/styles.js.hbs',
         },
         {
           type: 'add',
-          path:
-            'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/index.tsx',
+          path: 'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/index.tsx',
           templateFile: './__templates__/flow/flow_navigator_index.js.hbs',
         },
         {
           type: 'add',
-          path:
-            'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/data.ts',
+          path: 'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/data.ts',
           templateFile: './__templates__/flow/data.js.hbs',
         },
         {
           type: 'add',
-          path:
-            'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
+          path: 'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
           templateFile: './__templates__/flow/component_test.js.hbs',
+        },
+        {
+          type: 'add',
+          path: 'src/views/{{pascalCase name}}Navigator/navigator.tsx',
+          templateFile: './__templates__/flow/navigator.js.hbs',
         },
         {
           type: 'modify',
