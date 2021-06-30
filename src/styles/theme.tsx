@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { metrics } from '../styles/metrics';
+import { StringMap } from '../utils';
 
 const { defaultSpace } = metrics;
 

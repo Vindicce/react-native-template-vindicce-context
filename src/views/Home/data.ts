@@ -1,14 +1,16 @@
 export interface IHome {
-  data: {
-    TEXT1: string;
-    TEXT2: string;
-    TEXT3: string;
-    TEXT4: string;
-    TEXT5: string;
-    TEXT6: string;
-    TEXT7: string;
-    TEXT8: string;
-  };
+  data: string[];
 }
 
 export interface IHomeLayout extends IHome {}
+
+export const texts = [
+  'yarn g',
+  ', to generate components',
+  "• View, to create Views(Container's)",
+  '• Components, for the creation of components.',
+  '• Hooks, to create a new Hooks.',
+  '• Flow, to create a new application flow.',
+  '• Factory, to create a factory',
+  '• Interface, to create global interfaces',
+];

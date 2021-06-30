@@ -1,2 +1,2 @@
-export { Home } from './Home';
+export * from './Home';
 // Import views here
