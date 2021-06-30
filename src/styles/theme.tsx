@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { metrics } from '../styles/metrics';
-import { StringMap } from '../utils';
+import { IStringMap, StringToNumberMap } from '../utils';
 
 const { defaultSpace } = metrics;
 
@@ -22,7 +22,7 @@ export const space = [
   defaultSpace(12),
 ];
 
-export const fontSizes: { [key: string]: string } = {
+export const fontSizes: IStringMap = {
   tiny: '12px',
   xsmall: '14px',
   small: '16px',
@@ -32,17 +32,21 @@ export const fontSizes: { [key: string]: string } = {
   xlarge: '34px',
 };
 
-export const colors: { [key: string]: string } = {};
+export const colors: IStringMap = {
+  WHITE: '#FFF',
+  TEXT: '#171717',
+  SUBLABEL: '#777777',
+};
 
-export const fonts: { [key: string]: string } = {};
+export const fonts: IStringMap = {};
 
-export const radii: { [key: string]: number } = {
+export const radii: StringToNumberMap = {
   Light: defaultSpace() / 2,
   Medium: defaultSpace(),
   Circle: 100,
 };
 
-export const shadows: { [key: string]: string } = {
+export const shadows: IStringMap = {
   cell: '0px 0px 8px rgba(0,0,0,0.12)',
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { GlobalProvider, ModalController } from './src/components';
 import Routes from './src/routes/Routes';
