@@ -1,4 +1,3 @@
-export * from './GlobalProvider';
-export * from './ModalController';
+export * from './Store';
 export * from './Base';
 // Import component here

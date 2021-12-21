@@ -1,14 +1,19 @@
-import * as React from 'react' 
+import * as React from 'react';
 import { createContext, useContext } from 'react';
-import { I{{ pascalCase name }}Context } from '../utils/interfaces/{{pascalCase name}}Interfaces';
+import { I{{ pascalCase name }}Context } from '~/utils';
 
 export const {{ pascalCase name }}Context = createContext<I{{ pascalCase name }}Context >(
   {} as I{{ pascalCase name }}Context 
 );
 
 export const {{ pascalCase name }}Provider: React.FC = ({ children }) => {
+
+  const value = {
+    initial: "test"
+  }
+
   return (
-    <{{ pascalCase name }}Context.Provider value={}>
+    <{{ pascalCase name }}Context.Provider value={value} >
       {children}
     </{{ pascalCase name }}Context.Provider>
   );

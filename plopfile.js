@@ -1,17 +1,17 @@
 const {
   viewExists,
-  componentExists,
-  getNavigators,
-  navigatorExists,
-  navigatorExistsForViews,
   hooksExists,
   factoryExists,
+  getNavigators,
+  navigatorExists,
+  componentExists,
   interfaceExists,
+  navigatorExistsForViews,
 } = require('./src/utils/componentExists');
 
 module.exports = plop => {
-  plop.setGenerator('View', {
-    description: 'Create a new Function View',
+  plop.setGenerator('Page', {
+    description: 'Create a new Function Page',
     prompts:
       getNavigators().length > 0
         ? [
@@ -26,7 +26,7 @@ module.exports = plop => {
               type: 'input',
               name: 'name',
               message: 'What should it be called?',
-              default: 'Home View',
+              default: 'Home Page',
               validate: (value, otherValues) => {
                 if (/.+/.test(value)) {
                   if (otherValues.navigator != 'Default') {
@@ -52,7 +52,7 @@ module.exports = plop => {
               type: 'input',
               name: 'name',
               message: 'What should it be called?',
-              default: 'Home View',
+              default: 'Home Page',
               validate: value => {
                 if (/.+/.test(value)) {
                   return viewExists(value)
@@ -67,35 +67,35 @@ module.exports = plop => {
       let notNavigator = data.navigator == null || data.navigator == 'Default';
 
       let path = notNavigator
-        ? 'src/views/{{pascalCase name}}/Layout/index.tsx'
-        : 'src/views/{{pascalCase navigator}}/{{pascalCase name}}/Layout/index.tsx';
+        ? 'src/pages/{{pascalCase name}}/Layout/index.tsx'
+        : 'src/pages/{{pascalCase navigator}}/{{pascalCase name}}/Layout/index.tsx';
 
       let pathStyles =
         data.navigator == 'Default'
-          ? 'src/views/{{pascalCase name}}/Layout/styles.ts'
-          : 'src/views/{{pascalCase navigator}}/{{pascalCase name}}/Layout/styles.ts';
+          ? 'src/pages/{{pascalCase name}}/Layout/styles.ts'
+          : 'src/pages/{{pascalCase navigator}}/{{pascalCase name}}/Layout/styles.ts';
 
       let componentTemplate = notNavigator
         ? './__templates__/view/view_layout_index.js.hbs'
         : './__templates__/view/view_layout_index_to_navigator.js.hbs';
 
       let pathToIndex = notNavigator
-        ? 'src/views/{{pascalCase name}}/index.tsx'
-        : 'src/views/{{pascalCase navigator}}/{{pascalCase name}}/index.tsx';
+        ? 'src/pages/{{pascalCase name}}/index.tsx'
+        : 'src/pages/{{pascalCase navigator}}/{{pascalCase name}}/index.tsx';
 
       let pathToIndexData = notNavigator
-        ? 'src/views/{{pascalCase name}}/data.ts'
-        : 'src/views/{{pascalCase navigator}}/{{pascalCase name}}/data.ts';
+        ? 'src/pages/{{pascalCase name}}/data.ts'
+        : 'src/pages/{{pascalCase navigator}}/{{pascalCase name}}/data.ts';
 
       let pathToIndexTest = notNavigator
-        ? 'src/views/{{pascalCase name}}/{{pascalCase name}}.spec.tsx'
-        : 'src/views/{{pascalCase navigator}}/{{pascalCase name}}/{{pascalCase name}}.spec.tsx';
+        ? 'src/pages/{{pascalCase name}}/{{pascalCase name}}.spec.tsx'
+        : 'src/pages/{{pascalCase navigator}}/{{pascalCase name}}/{{pascalCase name}}.spec.tsx';
 
       let componentTemplateIndex =
         './__templates__/function/functionIndex.js.hbs';
 
       let componentTemplateStyles = './__templates__/view/styles.js.hbs';
-      let pathIndex = 'src/views/index.ts';
+      let pathIndex = 'src/pages/index.ts';
       let patternImport = /\/\/ Import views here\n/g;
       let patternInsert = /\/\/ Insert views here\n/g;
       let componentTemplateImport = './__templates__/common/importView.hbs';
@@ -163,13 +163,13 @@ module.exports = plop => {
               },
               {
                 type: 'modify',
-                path: 'src/views/{{pascalCase navigator}}/navigator.tsx',
+                path: 'src/pages/{{pascalCase navigator}}/navigator.tsx',
                 pattern: /\/\/ import views here\n/g,
                 templateFile: './__templates__/flow/import_view_routes.js.hbs',
               },
               {
                 type: 'modify',
-                path: 'src/views/{{pascalCase navigator}}/navigator.tsx',
+                path: 'src/pages/{{pascalCase navigator}}/navigator.tsx',
                 pattern: /\/\/ add viewsName here\n/g,
                 templateFile: './__templates__/flow/import_view_name.js.hbs',
               },
@@ -236,76 +236,6 @@ module.exports = plop => {
       return actions;
     },
   });
-  plop.setGenerator('Modal', {
-    description: 'Create a new Modal',
-    prompts: [
-      {
-        type: 'input',
-        name: 'name',
-        message: 'What should it be called?',
-        default: 'Profile',
-        validate: value => {
-          if (/.+/.test(value)) {
-            return componentExists(value)
-              ? 'A component or container with this name already exists'
-              : true;
-          }
-          return 'The name is required';
-        },
-      },
-    ],
-    actions: data => {
-      let patternImport = /\/\/ Import component here\n/g;
-
-      const actions = [
-        {
-          type: 'add',
-          path: 'src/components/Modal{{pascalCase name}}/Layout/index.tsx',
-          templateFile: './__templates__/modals/component_layout_index.js.hbs',
-        },
-        {
-          type: 'add',
-          path: 'src/components/Modal{{pascalCase name}}/Layout/styles.ts',
-          templateFile: './__templates__/modals/styles.js.hbs',
-        },
-        {
-          type: 'add',
-          path: 'src/components/Modal{{pascalCase name}}/index.tsx',
-          templateFile: './__templates__/modals/modal_component_index.js.hbs',
-        },
-        {
-          type: 'add',
-          path: 'src/components/Modal{{pascalCase name}}/data.ts',
-          templateFile: './__templates__/modals/data.js.hbs',
-        },
-        {
-          type: 'add',
-          path: 'src/components/Modal{{pascalCase name}}/Modal{{pascalCase name}}.spec.tsx',
-          templateFile: './__templates__/modals/component_test.js.hbs',
-        },
-        {
-          type: 'modify',
-          path: 'src/components/index.ts',
-          pattern: patternImport,
-          templateFile: './__templates__/modals/import_modal_component.js.hbs',
-        },
-        {
-          type: 'modify',
-          path: 'src/components/ModalController/index.tsx',
-          pattern: /\/\/ import modal\n/g,
-          templateFile: './__templates__/modals/import_modal_controller.js.hbs',
-        },
-        {
-          type: 'modify',
-          path: 'src/components/ModalController/index.tsx',
-          pattern: /\/\/ add modal\n/g,
-          templateFile: './__templates__/modals/add_modal.js.hbs',
-        },
-      ];
-
-      return actions;
-    },
-  });
   plop.setGenerator('Hooks', {
     description: 'Create a new Hooks',
     prompts: [
@@ -313,7 +243,7 @@ module.exports = plop => {
         type: 'input',
         name: 'name',
         message: 'What should it be called?',
-        default: 'usePerson',
+        default: 'Person',
         validate: value => {
           if (/.+/.test(value)) {
             return hooksExists(value)
@@ -328,23 +258,23 @@ module.exports = plop => {
       const actions = [
         {
           type: 'add',
-          path: 'src/hooks/{{pascalCase name}}.tsx',
+          path: 'src/context/{{pascalCase name}}.tsx',
           templateFile: './__templates__/hooks/new_hook.js.hbs',
         },
         {
           type: 'add',
-          path: 'src/utils/interfaces/{{pascalCase name}}Interfaces.ts',
+          path: 'src/utils/interfaces/context/{{pascalCase name}}Interfaces.ts',
           templateFile: './__templates__/utils/interfacesContext.tsx.hbs',
         },
         {
           type: 'modify',
-          path: 'src/hooks/index.ts',
+          path: 'src/context/index.ts',
           pattern: /\/\/ Import hooks here\n/g,
           templateFile: './__templates__/hooks/import_export_hooks.js.hbs',
         },
         {
           type: 'modify',
-          path: 'src/utils/interfaces/index.ts',
+          path: 'src/utils/interfaces/context/index.ts',
           pattern: /\/\/ export interfaces\n/g,
           templateFile: './__templates__/utils/export_interface.ts.hbs',
         },
@@ -370,7 +300,7 @@ module.exports = plop => {
         validate: value => {
           if (/.+/.test(value)) {
             return navigatorExists(value)
-              ? 'A component or container with this name already exists'
+              ? 'A navigator with this name already exists'
               : true;
           }
           return 'The name is required';
@@ -381,43 +311,43 @@ module.exports = plop => {
       const actions = [
         {
           type: 'add',
-          path: 'src/views/{{pascalCase name}}Navigator/index.tsx',
+          path: 'src/pages/{{pascalCase name}}Navigator/index.tsx',
           templateFile: './__templates__/flow/index_flow.jbs.hbs',
         },
         {
           type: 'add',
-          path: 'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/Layout/index.tsx',
+          path: 'src/pages/{{pascalCase name}}Navigator/{{pascalCase name}}/Layout/index.tsx',
           templateFile:
             './__templates__/flow/flow_navigator_layout_index.js.hbs',
         },
         {
           type: 'add',
-          path: 'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/Layout/styles.ts',
+          path: 'src/pages/{{pascalCase name}}Navigator/{{pascalCase name}}/Layout/styles.ts',
           templateFile: './__templates__/flow/styles.js.hbs',
         },
         {
           type: 'add',
-          path: 'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/index.tsx',
+          path: 'src/pages/{{pascalCase name}}Navigator/{{pascalCase name}}/index.tsx',
           templateFile: './__templates__/flow/flow_navigator_index.js.hbs',
         },
         {
           type: 'add',
-          path: 'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/data.ts',
+          path: 'src/pages/{{pascalCase name}}Navigator/{{pascalCase name}}/data.ts',
           templateFile: './__templates__/flow/data.js.hbs',
         },
         {
           type: 'add',
-          path: 'src/views/{{pascalCase name}}Navigator/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
+          path: 'src/pages/{{pascalCase name}}Navigator/{{pascalCase name}}/{{pascalCase name}}.spec.tsx',
           templateFile: './__templates__/flow/component_test.js.hbs',
         },
         {
           type: 'add',
-          path: 'src/views/{{pascalCase name}}Navigator/navigator.tsx',
+          path: 'src/pages/{{pascalCase name}}Navigator/navigator.tsx',
           templateFile: './__templates__/flow/navigator.js.hbs',
         },
         {
           type: 'modify',
-          path: 'src/views/index.ts',
+          path: 'src/pages/index.ts',
           pattern: /\/\/ Import views here\n/g,
           templateFile: './__templates__/flow/import_view.js.hbs',
         },
@@ -437,7 +367,7 @@ module.exports = plop => {
         validate: value => {
           if (/.+/.test(value)) {
             return factoryExists(value)
-              ? 'A component or container with this name already exists'
+              ? 'A factory with this name already exists'
               : true;
           }
           return 'The name is required';

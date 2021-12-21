@@ -1,11 +1,10 @@
 import * as React from 'react';
 
-import { Wrapped, Page } from '../../../../components';
-
-import { I{{ pascalCase name }}Layout } from '../data'
+import { Wrapped, Page } from '~/components';
+import { I{{ pascalCase name }}Layout } from '~/pages/{{ pascalCase name }}Navigator/{{ pascalCase name }}/data';
 import C from './styles';
 
-export const {{pascalCase name}}: React.FC<I{{ pascalCase name }}Layout> = ({ data }) => (
+export const {{pascalCase name}} = ({ data }: I{{ pascalCase name }}Layout) => (
   <Page>
     <Wrapped flex={1} center testID={`{{pascalCase name}}`}>
       <C.Text>{`{{pascalCase name}}`}</C.Text>
