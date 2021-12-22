@@ -70,10 +70,9 @@ module.exports = plop => {
         ? 'src/pages/{{pascalCase name}}/Layout/index.tsx'
         : 'src/pages/{{pascalCase navigator}}/{{pascalCase name}}/Layout/index.tsx';
 
-      let pathStyles =
-        data.navigator == 'Default'
-          ? 'src/pages/{{pascalCase name}}/Layout/styles.ts'
-          : 'src/pages/{{pascalCase navigator}}/{{pascalCase name}}/Layout/styles.ts';
+      let pathStyles = notNavigator
+        ? 'src/pages/{{pascalCase name}}/Layout/styles.ts'
+        : 'src/pages/{{pascalCase navigator}}/{{pascalCase name}}/Layout/styles.ts';
 
       let componentTemplate = notNavigator
         ? './__templates__/view/view_layout_index.js.hbs'
@@ -236,8 +235,8 @@ module.exports = plop => {
       return actions;
     },
   });
-  plop.setGenerator('Hooks', {
-    description: 'Create a new Hooks',
+  plop.setGenerator('Context', {
+    description: 'Create a new context',
     prompts: [
       {
         type: 'input',

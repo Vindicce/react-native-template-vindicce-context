@@ -1,3 +1,3 @@
 export * from './Store';
-export * from './Base';
+export * from './Basics';
 // Import component here
