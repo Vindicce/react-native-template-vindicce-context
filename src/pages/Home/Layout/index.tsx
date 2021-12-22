@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Wrapped, Page, Text } from '../../../components';
+import { Wrapped, Page, Text } from '~/components';
 
 import { IHomeLayout } from '../data';
 import C from './styles';
