@@ -37,7 +37,7 @@
 
 You can starting a new project this way:
 
-`expo init MyAppName --template react-native-template-vindicce-context`
+`expo init MyAppName --template react-native-vindicce-context`
 
 #
 
