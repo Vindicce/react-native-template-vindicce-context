@@ -1,7 +1,7 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "name": "react-native-template-vindicce-context",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "scripts": {
     "generator": "plop",
     "g": "plop",
@@ -22,32 +22,32 @@
     "@types/styled-system": "^5.1.11",
     "axios": "latest",
     "babel-plugin-module-resolver": "^4.1.0",
-    "expo": "^46.0.0",
     "expo-linear-gradient": "~11.0.3",
-    "expo-status-bar": "~1.2.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-gesture-handler": "~2.1.0",
     "react-native-modal": "^12.0.2",
     "react-native-reanimated": "~2.3.1",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
-    "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.0",
     "styled-components": "latest",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "expo": "~46.0.9",
+    "expo-status-bar": "~1.4.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-native": "0.69.5",
+    "react-native-web": "~0.18.7"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0",
+    "@babel/core": "^7.12.9",
+    "@types/react": "~18.0.14",
+    "@types/react-native": "~0.69.1",
+    "typescript": "~4.3.5",
     "@testing-library/react-native": "^7.1.0",
     "@types/jest": "^26.0.15",
-    "@types/react": "~16.9.35",
-    "@types/react-native": "~0.63.2",
     "babel-preset-expo": "8.3.0",
     "jest-expo": "^42.0.0",
-    "plop": "latest",
-    "typescript": "~4.0.0"
+    "plop": "latest"
   },
   "jest": {
     "preset": "jest-expo"
