@@ -1,7 +1,7 @@
 {
   "main": "node_modules/expo/AppEntry.js",
   "name": "react-native-template-vindicce-context",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "scripts": {
     "generator": "plop",
     "g": "plop",
@@ -22,7 +22,7 @@
     "@types/styled-system": "^5.1.11",
     "axios": "latest",
     "babel-plugin-module-resolver": "^4.1.0",
-    "expo": "^42.0.0",
+    "expo": "^44.0.0",
     "expo-linear-gradient": "~9.2.0",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
