@@ -7,10 +7,10 @@ export interface IHomeLayout extends IHome {}
 export const texts = [
   'yarn g',
   ', to generate components',
-  "• View, to create Views(Container's)",
+  "• Page, to create Pages(Container's)",
   '• Components, for the creation of components.',
-  '• Hooks, to create a new Hooks.',
+  '• Context, to create a new context.',
   '• Flow, to create a new application flow.',
-  '• Factory, to create a factory',
+  '• Hooks, to create a hook',
   '• Interface, to create global interfaces',
 ];

@@ -355,14 +355,14 @@ module.exports = plop => {
       return actions;
     },
   });
-  plop.setGenerator('Factory', {
-    description: 'Create a new Factory',
+  plop.setGenerator('Hook', {
+    description: 'Create a new Hook',
     prompts: [
       {
         type: 'input',
         name: 'name',
         message: 'What should it be called?',
-        default: 'PaymentFactory',
+        default: 'useHookName',
         validate: value => {
           if (/.+/.test(value)) {
             return factoryExists(value)
@@ -377,12 +377,12 @@ module.exports = plop => {
       const actions = [
         {
           type: 'add',
-          path: 'src/utils/factories/{{pascalCase name}}Factory.tsx',
+          path: 'src/utils/hooks/use{{pascalCase name}}.tsx',
           templateFile: './__templates__/utils/factory.tsx.hbs',
         },
         {
           type: 'modify',
-          path: 'src/utils/factories/index.ts',
+          path: 'src/utils/hooks/index.ts',
           pattern: /\/\/ export factory\n/g,
           templateFile: './__templates__/utils/export_factoy.ts.hbs',
         },

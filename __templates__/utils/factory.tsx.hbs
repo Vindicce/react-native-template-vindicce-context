@@ -1,14 +1,4 @@
-interface I{{ pascalCase name }}Factory {
-  showName(): void;
-}
-
-export function create{{ pascalCase name }}Factory(): I{{ pascalCase name }}Factory {
-
-  function showName(): void {
-    return console.log(`create{{ pascalCase name }}`);
-  }
-
-  return {
-    showName,
-  };
-}
+export const use{{pascalCase name}}
+= () => { function showName(): void { return console.log(`create{{pascalCase
+  name
+}}`); } return { showName, }; };

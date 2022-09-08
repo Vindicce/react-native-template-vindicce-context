@@ -32,7 +32,7 @@ function hooksExists(comp) {
 }
 
 function factoryExists(comp) {
-  const allHooks = fs.readdirSync('src/utils/factories');
+  const allHooks = fs.readdirSync('src/utils/hooks');
   return allHooks.indexOf(`${comp}`) >= 0;
 }
 
