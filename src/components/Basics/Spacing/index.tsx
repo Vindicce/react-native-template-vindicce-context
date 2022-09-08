@@ -12,7 +12,8 @@ export const Spacing = ({children, space}: ISpacing) => {
       {childrens.map((child, index) => (
         <Wrapped
           key={index}
-          {...(index === childrens.length - 1 ? {} : {mb: space})}>
+          {...(index === childrens.length - 1 ? {} : {mb: space})}
+        >
           {child}
         </Wrapped>
       ))}

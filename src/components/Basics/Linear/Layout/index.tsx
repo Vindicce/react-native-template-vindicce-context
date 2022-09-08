@@ -22,7 +22,8 @@ export const Linear: React.FC<ILinearLayout> = ({
       {...props}
       colors={[color_1, color_2]}
       start={{x: 1, y: 0}}
-      end={{x: 0, y: 1}}>
+      end={{x: 0, y: 1}}
+    >
       {children}
     </C.Wrapped>
   );

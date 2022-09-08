@@ -12,10 +12,12 @@ export const Page: React.FC<IPageLayout> = ({
   return (
     <C.SafeAreaStyled bg={bg}>
       <C.KeyboardAvoidStyled
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      >
         <ScrollView
           contentContainerStyle={{flexGrow: 1}}
-          keyboardShouldPersistTaps={'handled'}>
+          keyboardShouldPersistTaps={'handled'}
+        >
           <Wrapped flexGrow={1} bg={bg} {...props}>
             {children}
           </Wrapped>
