@@ -1,11 +1,11 @@
-import React, { createContext, useContext } from 'react';
-import { IInitialContext } from '../utils/interfaces';
+import React, {createContext, useContext} from 'react';
+import {IInitialContext} from '../utils/interfaces';
 
 export const InitialContext = createContext<IInitialContext>(
   {} as IInitialContext
 );
 
-export const InitialProvider: React.FC = ({ children }) => {
+export const InitialProvider: React.FC = ({children}) => {
   const value = {
     initial: 'test',
   };

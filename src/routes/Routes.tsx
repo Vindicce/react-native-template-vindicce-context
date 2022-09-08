@@ -1,17 +1,17 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import * as views from '../pages';
 
 const Stack = createStackNavigator();
 
-const allViews: { [key: string]: any } = {
+const allViews: {[key: string]: any} = {
   ...views,
 };
 
 function defineRoutesProps(name: string) {
   return {
     name,
-    options: { headerShown: false },
+    options: {headerShown: false},
     component: allViews[name],
   };
 }

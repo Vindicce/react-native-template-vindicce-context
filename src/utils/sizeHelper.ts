@@ -1,5 +1,5 @@
 const React = require('react-native');
-const { PixelRatio, Dimensions } = React;
+const {PixelRatio, Dimensions} = React;
 
 const pixelRatio = PixelRatio.get();
 const deviceHeight = Dimensions.get('window').height;

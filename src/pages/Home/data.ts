@@ -1,5 +1,5 @@
 export interface IHome {
-  data: string[];
+  data: any;
 }
 
 export interface IHomeLayout extends IHome {}

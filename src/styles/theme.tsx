@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import {ThemeProvider as StyledThemeProvider} from 'styled-components';
 
-import { metrics } from '../styles/metrics';
-import { IStringMap, StringToNumberMap } from '../utils';
+import {metrics} from '../styles/metrics';
+import {IStringMap, StringToNumberMap} from '../utils';
 
-const { defaultSpace } = metrics;
+const {defaultSpace} = metrics;
 
 export const space = [
   defaultSpace() / 2,
@@ -58,6 +58,6 @@ export const theme = {
   radii,
 };
 
-export const ThemeProvider: React.FC = ({ children }) => (
+export const ThemeProvider: React.FC = ({children}) => (
   <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
 );

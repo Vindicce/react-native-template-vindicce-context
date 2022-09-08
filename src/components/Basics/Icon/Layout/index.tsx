@@ -1,12 +1,12 @@
 import * as React from 'react';
 import * as ICON from '@expo/vector-icons';
 
-import { Wrapped } from '../../Wrapped';
+import {Wrapped} from '../../Wrapped';
 
-import { colors } from '../../../../styles/theme';
-import { IIconLayout } from '../data';
+import {colors} from '../../../../styles/theme';
+import {IIconLayout} from '../data';
 
-const Main = ({ lib, ...props }: IIconLayout) => {
+const Main = ({lib, ...props}: IIconLayout) => {
   // @ts-ignore
   const Icon = ICON[lib];
   return <Icon {...props} />;

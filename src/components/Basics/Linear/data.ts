@@ -7,7 +7,7 @@ import {
   TypographyProps,
   BackgroundColorProps,
   LayoutProps,
-} from "styled-system";
+} from 'styled-system';
 
 export interface ILinear
   extends BorderProps,

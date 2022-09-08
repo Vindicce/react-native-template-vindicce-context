@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { View, TextInput, Button } from 'react-native';
-import { render, fireEvent } from '@testing-library/react-native';
+import React, {useState} from 'react';
+import {View, TextInput, Button} from 'react-native';
+import {render, fireEvent} from '@testing-library/react-native';
 
 interface IComponentDeTest {
   press(email: string, password: string): void;
 }
 
-const ComponentDeTest: React.FC<IComponentDeTest> = ({ press }) => {
+const ComponentDeTest: React.FC<IComponentDeTest> = ({press}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -51,7 +51,7 @@ const exemploDeFn = jest.fn();
 // Exemplo de teste de render
 describe('Render ComponentDeTest', () => {
   it('Should be ComponentDeTest exist', () => {
-    const { getByTestId } = render(<ComponentDeTest press={exemploDeFn} />);
+    const {getByTestId} = render(<ComponentDeTest press={exemploDeFn} />);
     const currentElement = getByTestId(`ComponentDeTest`);
     expect(currentElement).toBeTruthy();
   });
@@ -61,7 +61,7 @@ describe('Render ComponentDeTest', () => {
 describe('ComponentDeTest ', () => {
   it('Should be ComponentDeTest is functional', () => {
     // capturando elementos
-    const { getByTestId } = render(<ComponentDeTest press={exemploDeFn} />);
+    const {getByTestId} = render(<ComponentDeTest press={exemploDeFn} />);
     const emailInput = getByTestId(`email`);
     const passwordInput = getByTestId(`password`);
     const buttonElement = getByTestId(`button`);

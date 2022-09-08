@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components/native';
-import { IWrappedLayout } from '../data';
-import { theme } from '../../../../styles/theme';
+import styled, {css} from 'styled-components/native';
+import {IWrappedLayout} from '../data';
+import {theme} from '../../../../styles/theme';
 
 import {
   border,
@@ -22,19 +22,19 @@ export default {
     ${boxShadow};
     ${backgroundColor};
 
-    ${({ boxShadow: shadow }) =>
+    ${({boxShadow: shadow}) =>
       shadow &&
       css`
         elevation: 5;
       `}
 
-    ${({ borderRadius }) =>
+    ${({borderRadius}) =>
       borderRadius &&
       css`
         border-radius: ${theme.radii[borderRadius as string] || 'Light'}px;
       `}
 
-    ${({ center }) =>
+    ${({center}) =>
       center &&
       css`
         align-items: center;

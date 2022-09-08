@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { Wrapped, Page, Text } from '~/components';
+import {Wrapped, Page, Text} from '~/components';
 
-import { IHomeLayout } from '../data';
+import {IHomeLayout} from '../data';
 import C from './styles';
 
-export const Home: React.FC<IHomeLayout> = ({ data }) => (
+export const Home = ({data}: IHomeLayout) => (
   <Page bg="WHITE">
     <Wrapped flex={1} center>
       <C.Image />

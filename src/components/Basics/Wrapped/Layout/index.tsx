@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { IWrappedLayout } from '../data';
-import { TouchableOpacity } from 'react-native';
+import {IWrappedLayout} from '../data';
+import {TouchableOpacity} from 'react-native';
 import C from './styles';
 
 export const Wrapped: React.FC<IWrappedLayout> = ({
@@ -10,7 +10,7 @@ export const Wrapped: React.FC<IWrappedLayout> = ({
 }) => {
   const as = props.onPress && TouchableOpacity;
   return (
-    <C.Wrapped {...{ as }} {...props} bg={bg}>
+    <C.Wrapped {...{as}} {...props} bg={bg}>
       {children}
     </C.Wrapped>
   );

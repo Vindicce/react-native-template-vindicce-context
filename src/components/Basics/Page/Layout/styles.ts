@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
-import { KeyboardAvoidingView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { color, BackgroundColorProps, backgroundColor } from 'styled-system';
+import {KeyboardAvoidingView} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {color, BackgroundColorProps, backgroundColor} from 'styled-system';
 
 export const SafeAreaStyled = styled(SafeAreaView)<BackgroundColorProps>`
   ${color};

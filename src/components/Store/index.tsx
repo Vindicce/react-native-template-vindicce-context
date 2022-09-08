@@ -1,7 +1,7 @@
 //@ts-nocheck
 import * as React from 'react';
 import * as hooksProviders from '~/context';
-import { ThemeProvider } from '~/styles';
+import {ThemeProvider} from '~/styles';
 
 const Providers = {
   ThemeProvider,
@@ -14,8 +14,8 @@ const providers = Object.keys(Providers).reduce((acc, curr) => {
   return [...acc, <Component />];
 }, []);
 
-export const Store: any = ({ children: initial }) =>
+export const Store: any = ({children: initial}) =>
   providers.reduce(
-    (children, parent) => React.cloneElement(parent, { children }),
+    (children, parent) => React.cloneElement(parent, {children}),
     initial
   );
