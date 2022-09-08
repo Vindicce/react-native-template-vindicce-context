@@ -1,15 +1,15 @@
 import * as React from 'react';
 
-import {Wrapped, Page, Text} from '~/components';
+import {Div, Screen, Text} from '~/components';
 
 import {IHomeLayout} from '../data';
 import C from './styles';
 
 export const Home = ({data}: IHomeLayout) => (
-  <Page bg="WHITE">
-    <Wrapped flex={1} center>
+  <Screen bg="WHITE">
+    <Div flex={1} center>
       <C.Image />
-      <Wrapped mt={4}>
+      <Div mt={4}>
         <Text textAlign="center" color="SUBLABEL" mb={4}>
           <Text>{data[0]}</Text>
           {data[1]}
@@ -20,7 +20,7 @@ export const Home = ({data}: IHomeLayout) => (
         <Text color="SUBLABEL">{data[5]}</Text>
         <Text color="SUBLABEL">{data[6]}</Text>
         <Text color="SUBLABEL">{data[7]}</Text>
-      </Wrapped>
-    </Wrapped>
-  </Page>
+      </Div>
+    </Div>
+  </Screen>
 );

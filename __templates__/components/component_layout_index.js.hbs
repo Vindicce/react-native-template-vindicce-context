@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { Wrapped, Text } from '~/components/Basics';
+import { Div, Text } from '~/components/Basics';
 
 import { I{{ pascalCase name }}Layout } from '~/components/{{ pascalCase name }}/data'
 
 export const {{pascalCase name}} = ({ data }: I{{pascalCase name}}Layout ) => (
-  <Wrapped flex={1} center testID={`{{pascalCase name}}`}>
+  <Div flex={1} center testID={`{{pascalCase name}}`}>
     <Text color="ORANGE">{`{{pascalCase name}}`}</Text>
-  </Wrapped>
+  </Div>
 )
